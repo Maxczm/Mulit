@@ -1,0 +1,33 @@
+{
+  "name": "vue-project",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host --open",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.1",
+    "@vue-office/docx": "^1.6.2",
+    "@wangeditor/editor-for-vue": "^5.1.12",
+    "animate.css": "^4.1.1",
+    "axios": "^1.7.7",
+    "element-plus": "^2.9.0",
+    "lodash": "^4.17.21",
+    "nprogress": "^0.2.0",
+    "pinia": "^2.2.4",
+    "pinia-plugin-persistedstate": "^4.1.2",
+    "qrcode": "^1.5.4",
+    "vite-plugin-compression": "^0.5.1",
+    "vue": "^3.5.12",
+    "vue-demi": "^0.14.10",
+    "vue-router": "^4.4.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.1.4",
+    "sass-embedded": "^1.80.4",
+    "vite": "^5.4.8"
+  }
+}

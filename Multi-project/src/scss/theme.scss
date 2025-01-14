@@ -1,0 +1,35 @@
+// 定义主题变量映射
+:root {
+  // 默认亮色主题变量
+  --toggle-day-bg: rgba(70, 133, 192, 1);
+  --toggle-night-bg: rgba(25, 30, 50, 1);
+  --toggle-shadow: rgba(0, 0, 0, 0.5);
+  --primary-bg: rgba(255, 255, 255, 0.8);
+  --secondary-bg: rgba(248, 248, 248, 0.8);
+  --text-color: #333333;
+  --border-color: rgba(228, 228, 228, 0.6);
+  --avatar-hover-color: #f9d938;
+  --primary-color: #409eff;
+  --dragon-bg: #fff6e3;
+  --nav-bg: rgba(244, 240, 240, 0.1);
+  --nav-bg-hover: rgba(244, 240, 240);
+  --nav-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  --backdrop-blur: 10px;
+}
+
+// 暗色主题变量
+html[data-theme='dark'] {
+  --toggle-day-bg: rgba(70, 133, 192, 1);
+  --toggle-night-bg: rgba(25, 30, 50, 1);
+  --toggle-shadow: rgba(0, 0, 0, 0.5);
+  --primary-bg: rgba(26, 26, 26, 0.8);
+  --secondary-bg: rgba(36, 36, 36, 0.8);
+  --text-color: #ffffff;
+  --border-color: rgba(54, 54, 54, 0.6);
+  --avatar-hover-color: #f9d938;
+  --primary-color: #79bbff;
+  --dragon-bg: #2c2c2c;
+  --nav-bg-hover: rgba(26, 26, 26);
+  --nav-bg: rgba(26, 26, 26, 0.7);
+  --nav-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
