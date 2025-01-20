@@ -5,7 +5,7 @@
       <div class="nav-item" v-for="item in navData" :key="item">{{ item }}</div>
     </div>
     <div class="nav-right">
-      <div class="svg">
+      <div class="svg" @click="searchShow = !searchShow">
         <svg t="1736498953935" class="icon" viewBox="0 0 1024 1024" version="1.1"
           xmlns="http://www.w3.org/2000/svg" p-id="1623" width="25" height="25">
           <path
@@ -13,6 +13,7 @@
             p-id="1624"></path>
         </svg>
       </div>
+      <el-input v-model="search" style="width: 200px;" v-show="searchShow" placeholder="搜索" />
       <el-dropdown trigger="hover">
         <div class="avatar-wrapper">
           <el-avatar :size="30" src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" style="border: 2px solid var(--avatar-hover-color);"/>
@@ -47,6 +48,9 @@ import { ArrowDown, User, Setting, SwitchButton } from '@element-plus/icons-vue'
 import { ref, onMounted, onUnmounted, watch } from 'vue'
 import { useCommonStore } from '@/stores/common'
 const commonStore = useCommonStore()
+//标志数据
+const searchShow = ref(false)
+
 //临时导航数据
 const navData = ref(['首页', '项目演示', 'PPT演示'])
 //节点数据
@@ -92,6 +96,7 @@ onUnmounted(() => {
 </style>
 <style lang="scss" scoped>
 .nav {
+z-index: 999;
   width: 80%;
   box-sizing: border-box;
   position: fixed;

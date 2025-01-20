@@ -1,0 +1,19 @@
+.el-input {
+    border: none;
+    background-color: var(--nav-bg);
+    box-sizing: border-box;
+
+    .el-input__wrapper {
+        border: none;
+        background-color: var(--nav-bg);
+        box-sizing: border-box;
+
+        &.is-focus {
+            box-shadow: 0 0 0 1px #dcdfe6 inset;
+        }
+    }
+    .el-input__inner {
+        box-sizing: border-box;
+        border: none;
+    }
+}
