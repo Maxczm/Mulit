@@ -13,10 +13,13 @@
     "@vue-office/docx": "^1.6.2",
     "@wangeditor/editor-for-vue": "^5.1.12",
     "animate.css": "^4.1.1",
+    "ant-design-x-vue": "^1.0.1",
     "axios": "^1.7.7",
     "element-plus": "^2.9.0",
     "lodash": "^4.17.21",
+    "markdown-it": "^14.1.0",
     "nprogress": "^0.2.0",
+    "openai": "^4.86.2",
     "pinia": "^2.2.4",
     "pinia-plugin-persistedstate": "^4.1.2",
     "qrcode": "^1.5.4",
@@ -27,6 +30,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.1.4",
+    "@vitejs/plugin-vue-jsx": "^4.1.1",
     "sass-embedded": "^1.80.4",
     "vite": "^5.4.8"
   }

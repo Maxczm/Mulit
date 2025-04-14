@@ -12,8 +12,30 @@
             box-shadow: 0 0 0 1px #dcdfe6 inset;
         }
     }
+
     .el-input__inner {
+        color: var(--text-color);
         box-sizing: border-box;
         border: none;
+
+        // placeholder
+        &::placeholder {
+            color: var(--text-color);
+        }
     }
+}
+
+.ai-input {
+        .el-textarea__inner {
+            border: none;
+            box-shadow: none;
+            background: rgb(243 244 246);
+            &:hover{
+                box-shadow: none;
+            }
+            &.is-focus {    
+                box-shadow: none;
+            }
+        }
+
 }

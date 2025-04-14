@@ -1,8 +1,8 @@
 <template>
   <div class="nav" ref="navRef">
-    <div class="nav-left">顶部导航栏目</div>
+    <div class="nav-left">代练网</div>
     <div class="nav-center">
-      <div class="nav-item" v-for="item in navData" :key="item">{{ item }}</div>
+      <div :class="['nav-item',{active:index == navindex}]" v-for="(item,index) in navData" :key="item" @click="changeindex(item,index)">{{ item.name }}</div>
     </div>
     <div class="nav-right">
       <div class="svg" @click="searchShow = !searchShow">
@@ -13,10 +13,11 @@
             p-id="1624"></path>
         </svg>
       </div>
-      <el-input v-model="search" style="width: 200px;" v-show="searchShow" placeholder="搜索" />
+      <el-input v-model="search" :style="{ width: searchShow ? '200px' : '0' }" class="search-input" v-show="searchShow" placeholder="搜索" />
       <el-dropdown trigger="hover">
         <div class="avatar-wrapper">
-          <el-avatar :size="30" src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" style="border: 2px solid var(--avatar-hover-color);"/>
+          <el-avatar :size="30" src='https://thirdwx.qlogo.cn/mmopen/vi_32/PiajxSqBRaEKH58r2YiaU2uyibetYfO9TWVXfrHVSKaawAToAP0TvYQJMryeIibadl7xsANHoED0V9uiaeccXrdP2WdmE8Pwfl1RTuicsBOoqtSwaT0cLuZLlBPg/132'
+ style="border: 2px solid var(--avatar-hover-color);"/>
         </div>
         <template #dropdown>
           <el-dropdown-menu>
@@ -47,12 +48,18 @@
 import { ArrowDown, User, Setting, SwitchButton } from '@element-plus/icons-vue'
 import { ref, onMounted, onUnmounted, watch } from 'vue'
 import { useCommonStore } from '@/stores/common'
+import { useRouter } from 'vue-router'
+const router = useRouter()
 const commonStore = useCommonStore()
 //标志数据
 const searchShow = ref(false)
-
+const search = ref('')
 //临时导航数据
-const navData = ref(['首页', '项目演示', 'PPT演示'])
+const navData = ref([
+  {name:'原创精品',path:'/'},
+    {name:'PPT模版',path:'ppt'},
+    {name:'AI工具',path:'ai'}])
+const navindex = ref(null)
 //节点数据
 const navRef = ref(null)
 watch(() => commonStore.scroll_height, (newVal) => {
@@ -69,17 +76,23 @@ watch(() => commonStore.scroll_height, (newVal) => {
     navRef.value.style.right = '10%'
   }
 })
-
-
-
+ const changeindex = (item,index) => {
+  navindex.value = index
+  router.push(item.path)
+ }
+ watch(() => commonStore.curretntabsid, (newVal) => {
+  navindex.value = newVal
+ })
 // 组件挂载时添加滚动监听
 onMounted(() => {
+  navindex.value = commonStore.curretntabsid
 })
 
 // 组件卸载时移除滚动监听
 onUnmounted(() => {
 })
 </script>
+
 <style>
 .el-dropdown-menu,
 .el-dropdown-list {
@@ -94,9 +107,10 @@ onUnmounted(() => {
   background-color: var(--nav-bg) !important;
 }
 </style>
+
 <style lang="scss" scoped>
 .nav {
-z-index: 999;
+  z-index: 999;
   width: 80%;
   box-sizing: border-box;
   position: fixed;
@@ -118,7 +132,6 @@ z-index: 999;
     background: var(--nav-bg-hover);
   }
 
-
   .nav-left {
     font-size: 1.2rem;
     font-weight: 500;
@@ -130,7 +143,21 @@ z-index: 999;
     display: flex;
     justify-content: center;
     align-items: center;
-
+    .active {
+      // 下横线效果
+      &::after {
+        width: 100%!important; // hover 时宽度变为100%
+        // 添加下横线效果
+        content: '';
+        position: absolute;
+        left: 0!important;
+        bottom: 1px; // 下横线距离文本的距离
+        height: 4px; // 下横线的高度
+        border-radius: 10px;
+        background-color: var(--avatar-hover-color); // 下横线的颜色
+        transition: width 0.7s ease, left 0.7s ease; // 添加动画效果
+      }
+    }
     .nav-item {
       height: 100%;
       line-height: 60px;
@@ -151,14 +178,11 @@ z-index: 999;
         background-color: var(--avatar-hover-color); // 下横线的颜色
         transition: width 0.7s ease, left 0.7s ease; // 添加动画效果
       }
-      &:hover::after{
+      &:hover::after {
         width: 100%; // hover 时宽度变为100%
         left: 0; // 使下横线从中间向两边延伸
       }
     }
-
-
-    
   }
 
   .nav-right {
@@ -172,7 +196,7 @@ z-index: 999;
       padding: 0.5rem;
       border-radius: 10px;
       transition: all .3s ease-in-out;
-      margin-right: 0.2rem; // 添加右侧间距
+      margin-right: 0.3rem; // 添加右侧间距
 
       &:hover {
         -webkit-transition: all .3s;
@@ -220,20 +244,5 @@ z-index: 999;
   }
 }
 
-:deep(.el-dropdown-menu__item) {
-  display: flex;
-  align-items: center;
-  padding: 8px 20px;
-  color: var(--text-color) !important;
-  border: none !important;
 
-  &:hover {
-    background-color: var(--avatar-hover-color) !important;
-  }
-
-  .el-icon {
-    margin-right: 8px;
-    font-size: 16px;
-  }
-}
 </style>

@@ -1,35 +1,49 @@
 // 定义主题变量映射
 :root {
   // 默认亮色主题变量
+  --collapsed-bg: #f9fbff;
+  --collapsed-bg-hover: #f9d938;
+  --big-brand-color:white;
   --toggle-day-bg: rgba(70, 133, 192, 1);
   --toggle-night-bg: rgba(25, 30, 50, 1);
   --toggle-shadow: rgba(0, 0, 0, 0.5);
   --primary-bg: rgba(255, 255, 255, 0.8);
   --secondary-bg: rgba(248, 248, 248, 0.8);
   --text-color: #333333;
-  --border-color: rgba(228, 228, 228, 0.6);
+  --sidebar-bg: #fff;
+  --sidebar-text-hover: rgb(248, 152.1, 152.1);
+  --border-color: #e5e5e5;
   --avatar-hover-color: #f9d938;
   --primary-color: #409eff;
   --dragon-bg: #fff6e3;
   --nav-bg: rgba(244, 240, 240, 0.1);
-  --nav-bg-hover: rgba(244, 240, 240);
+  --nav-bg-hover: #fff;
   --nav-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   --backdrop-blur: 10px;
+  --list-bg: #f5f5f5;
+  --bg:url('@/images/bg/bg1.png');
 }
 
 // 暗色主题变量
 html[data-theme='dark'] {
+  --big-brand-color:transparent;
+  --collapsed-bg: #2c2c2c;
+  --collapsed-bg-hover: rgba(70, 133, 192, 1);
   --toggle-day-bg: rgba(70, 133, 192, 1);
   --toggle-night-bg: rgba(25, 30, 50, 1);
-  --toggle-shadow: rgba(0, 0, 0, 0.5);
+  --toggle-shadow: rgba(22, 21, 21, 0.5);
   --primary-bg: rgba(26, 26, 26, 0.8);
   --secondary-bg: rgba(36, 36, 36, 0.8);
+  --sidebar-bg: rgba(26, 26, 26, 0.8);
+  --sidebar-text-hover: #f9d938;
   --text-color: #ffffff;
-  --border-color: rgba(54, 54, 54, 0.6);
+  --border-color: #f9d938;
   --avatar-hover-color: #f9d938;
   --primary-color: #79bbff;
   --dragon-bg: #2c2c2c;
   --nav-bg-hover: rgba(26, 26, 26);
   --nav-bg: rgba(26, 26, 26, 0.7);
   --nav-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  --list-bg: #2c2c2c;
+  --bg:url('@/images/bg/darkbg.png');
 }

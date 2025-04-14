@@ -4,7 +4,11 @@ import { cancelRequest, removeRequest } from '@/untils/cancel_request'
 // 创建axios实例
 const service = axios.create({
   baseURL: '/api',
-  timeout: 5000
+  timeout: 30000,
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + 'app-y0tffSJlYjD20iHbRalldbYZ'
+    }
 })
 
 // 请求拦截器

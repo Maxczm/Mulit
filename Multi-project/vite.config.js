@@ -2,6 +2,7 @@ import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import vueJsx from "@vitejs/plugin-vue-jsx";
 import viteCompression from 'vite-plugin-compression';
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -16,9 +17,7 @@ export default defineConfig({
   },
   plugins: [
     vue(),
-    
-   
-   
+    vueJsx()
   ],
   build: {
     // 设置打包文件夹的名称
@@ -54,7 +53,7 @@ export default defineConfig({
     proxy: {
       // 配置跨域
       "/api": {
-        target: "http://192.168.10.183:28366", // 另一个目标接口地址
+        target: "https://ai.ismartgo.com/v1", // 另一个目标接口地址
         changeOrigin: true, // 允许跨域
         rewrite: (path) => path.replace(/^\/api/, "") // 重写请求路径
       }

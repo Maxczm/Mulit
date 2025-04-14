@@ -5,6 +5,7 @@ import { useThemeStore } from '@/stores/theme'
 import { useCommonStore } from '@/stores/common'
 import { onMounted, watch } from 'vue'
 import Toggle from '@/components/Toggle_btn/index.vue'
+import SideBar from '@/components/SideBar/index.vue'
 const themeStore = useThemeStore()
 const commonStore = useCommonStore()
 const change_nav = (height) => {
@@ -40,6 +41,11 @@ onMounted(() => {
 .main-container {
   /* 与导航栏高度相同 */
   box-sizing: border-box;
+  background-image: var(--bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
 }
 
 /* 调整滚动条容器样式 */
